@@ -22,6 +22,7 @@
             "remote_host" : "devserver2.test.com",
             "remote_user" : "jsmith",
             "remote_path" : "/usr/local/jdoe_work",
+            "remote_port" : 22,
             // what do you want to exclude in sync to *this* host? 
             // usual file patterns. 
             // If you're using multiple servers and git, you might want to 
