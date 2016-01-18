@@ -90,6 +90,8 @@ class STRSHost(dict):
         return self.get('remote_host', False)
     def path(self):
         return self.get('remote_path', False)
+    def port(self):
+        return self.get('remote_port', False)
 
     # def local_path(self):
     #     return self.prefs('local_path')
@@ -101,9 +103,10 @@ class STRSHost(dict):
     #     return self.prefs('delete_slave')
     def remote_host(self, relative_path=''):
         if self:
-            return "{user}{host}".format(
+            return "{user}{host}{port}".format(
                             user=self['remote_user'] + '@' if self.get('remote_user', False)  else '',
                             host=self['remote_host'] if self.get('remote_host', False) else '',
+                            port=' -p ' + self['remote_port'] if self.get('remote_port', False) else '',
                             )
         else:
             return False
